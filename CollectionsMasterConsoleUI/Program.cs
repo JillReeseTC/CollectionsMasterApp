@@ -12,22 +12,28 @@ namespace CollectionsMasterConsoleUI
             //Utlilize the method stubs at the bottom for the methods you must create ⬇⬇⬇
 
             #region Arrays
-            //TODO: Create an integer Array of size 50
-            
+            //Create an integer Array of size 50
+            int[] array50 = new int[50];
 
-            //TODO: Create a method to populate the number array with 50 random numbers that are between 0 and 50
-            
+            //Create a method to populate the number array with 50 random numbers that are between 0 and 50
+            Random rand = new Random();
+            for (int i = 0; i < 50; i++)
+            {
+                array50[i] = rand.Next(0, 50);
+            }
 
-            //TODO: Print the first number of the array
+            //Print the first number of the array
+            Console.WriteLine($"First number of the array is: {array50[0]}.");
 
-            //TODO: Print the last number of the array            
+            //Print the last number of the array
+            Console.WriteLine($"Last number of the array is: {array50[array50.Length - 1]}.");
 
             Console.WriteLine("All Numbers Original");
             //UNCOMMENT this method to print out your numbers from arrays or lists
-            //NumberPrinter();
-            Console.WriteLine("-------------------");
+            NumberPrinter(array50);
+            Console.WriteLine("-----------------");
 
-            //TODO: Reverse the contents of the array and then print the array out to the console.
+            //Reverse the contents of the array and then print the array out to the console.
             //Try for 2 different ways
             /*  1) First way, using a custom method => Hint: Array._____(); 
                 2) Second way, Create a custom method (scroll to bottom of page to find ⬇⬇⬇)
@@ -35,7 +41,14 @@ namespace CollectionsMasterConsoleUI
 
             Console.WriteLine("All Numbers Reversed:");
 
+            //Array method version
+            Console.WriteLine(Array.Reverse(array50, 0, array50.Length));
+            Console.WriteLine();
+
+
             Console.WriteLine("---------REVERSE CUSTOM------------");
+
+
 
             Console.WriteLine("-------------------");
 
