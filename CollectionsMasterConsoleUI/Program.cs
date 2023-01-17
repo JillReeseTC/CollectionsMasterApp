@@ -122,7 +122,7 @@ namespace CollectionsMasterConsoleUI
             mrInts.Sort();
             foreach (var itemSort in mrInts)
             {
-                Console.WriteLine($"{itemSort} ");
+                Console.Write($"{itemSort} ");
             }
             Console.WriteLine();
 
@@ -206,33 +206,37 @@ namespace CollectionsMasterConsoleUI
             Console.WriteLine("What number will you search for in the number list?");
             Console.WriteLine($"Enter an integer between 0 and 50: ");
             var s = Console.ReadLine();
-            int x;
+            int x = -1;
 
-            if (int.TryParse(s, out x) && x >= 0 && x <= 50)
-            { 
-                Console.WriteLine($"You entered a valid integer: {x}");
-            }
-            else
+            while (x >= 0 && x <= 50)
             {
-                Console.WriteLine($"Invalid Input. Try an integer from 0 to 50:");
+                if (int.TryParse(s, out x))
+                {
+                    Console.WriteLine($"You entered a valid integer: {x}");
+                }
+                else
+                {
+                    Console.WriteLine($"Invalid Input. Try an integer from 0 to 50:");
+                }
             }
-
+             
             return x;
         }
 
         private static void NumberChecker(List<int> numberList, int searchNumber)
         {
+            bool found = false;
+            var outputString = "";
             foreach (var item in numberList)
             {
                 if (item == searchNumber)
                 {
-                    Console.WriteLine("Number is found!");
-                }
-                else
-                {
-                    Console.WriteLine("Number is not in list of numbers.");
+                    found = true;
                 }
             }
+            outputString = (found) ? "Number is found!" : "Number is not in list.";
+
+            Console.WriteLine(outputString);
         }
 
         private static void Populater(List<int> numberList)
