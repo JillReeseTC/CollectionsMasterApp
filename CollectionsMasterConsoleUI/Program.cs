@@ -78,7 +78,7 @@ namespace CollectionsMasterConsoleUI
             Console.WriteLine("-------------------");
 
             //TODO: Create a method that will set numbers that are a multiple of 3 to zero then print to the console all numbers
-            Console.WriteLine("Multiple of three = 0: ");
+            Console.WriteLine("Multiple of three: ");
             
             List<int> threeKillList = new List<int>();
 
@@ -102,7 +102,12 @@ namespace CollectionsMasterConsoleUI
             //TODO: Sort the array in order now
             /*      Hint: Array.____()      */
             Console.WriteLine("Sorted numbers:");
-            
+            Array.Sort(array50);
+            for (int counter = 0; counter < array50.Length -1; counter++)
+            {
+                Console.Write($"{array50[counter]} ");
+            }
+            Console.WriteLine();
 
             Console.WriteLine("\n************End Arrays*************** \n");
             #endregion
