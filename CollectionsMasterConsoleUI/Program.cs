@@ -175,17 +175,16 @@ namespace CollectionsMasterConsoleUI
 
         private static void OddKiller(List<int> numberList)
         {
-            Console.WriteLine("Multiple of three: ");
+            Console.WriteLine("Remove the Odd Numbers: ");
 
             List<int> oddKillList = new List<int>();
             List<int> evenList = new List<int>();
 
             foreach (var item in numberList)
             {
-                if ((item % 2 == 1) && (item != 0))
+                if (item % 2 == 1)
                 {
                     oddKillList.Add(item);
-                    evenList.Add(0);
                 }
                 else
                 {
@@ -209,18 +208,14 @@ namespace CollectionsMasterConsoleUI
             var s = Console.ReadLine();
             int x;
 
-            do
+            if (int.TryParse(s, out x) && x >= 0 && x <= 50)
+            { 
+                Console.WriteLine($"You entered a valid integer: {x}");
+            }
+            else
             {
-                if (int.TryParse(s, out x))
-                {
-                    Console.WriteLine($"You entered a valid integer: {x}");
-                }
-                else
-                {
-                    Console.WriteLine($"Invalid Input. Try another integer:");
-                    s = Console.ReadLine();
-                }
-            } while (!((x >= 0) && (x <= 50)));
+                Console.WriteLine($"Invalid Input. Try an integer from 0 to 50:");
+            }
 
             return x;
         }
