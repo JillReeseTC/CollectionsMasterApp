@@ -21,6 +21,8 @@ namespace CollectionsMasterConsoleUI
             {
                 array50[i] = rand.Next(0, 50);
             }
+            Console.WriteLine();
+            Console.WriteLine();
 
             //Print the first number of the array
             Console.WriteLine($"First number of the array is: {array50[0]}.");
@@ -30,7 +32,7 @@ namespace CollectionsMasterConsoleUI
 
             Console.WriteLine("All Numbers Original");
             //UNCOMMENT this method to print out your numbers from arrays or lists
-            NumberPrinter(array50);
+            //NumberPrinter(array50);
             Console.WriteLine("-----------------");
 
             //Reverse the contents of the array and then print the array out to the console.
@@ -41,20 +43,59 @@ namespace CollectionsMasterConsoleUI
 
             Console.WriteLine("All Numbers Reversed:");
 
-            //Array method version
-            Console.WriteLine(Array.Reverse(array50, 0, array50.Length));
+            Array.Reverse(array50);
+            foreach (var item in array50)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine();
+
+            //Print the first number of the array
+            Console.WriteLine($"First number of the array is: {array50[0]}.");
+
+            //Print the last number of the array
+            Console.WriteLine($"Last number of the array is: {array50[array50.Length - 1]}.");
             Console.WriteLine();
 
 
             Console.WriteLine("---------REVERSE CUSTOM------------");
 
+            int[] reverseArray50 = new int[50];
+           for (int i = array50.Length - 1; i > -1; i--)
+            {
+                reverseArray50[49 - i] = array50[i];  
+            }
 
+            //Print the first number of the array
+            Console.WriteLine($"Last number of the array is: {array50[array50.Length - 1]}.");
+            Console.WriteLine($"First number of the reverse array is: {reverseArray50[0]}.");
+
+            //Print the last number of the array
+            Console.WriteLine($"First number of the array is: {array50[0]}.");
+            Console.WriteLine($"Last number of the reverse array is: {reverseArray50[reverseArray50.Length - 1]}.");
+            Console.WriteLine();
 
             Console.WriteLine("-------------------");
 
             //TODO: Create a method that will set numbers that are a multiple of 3 to zero then print to the console all numbers
             Console.WriteLine("Multiple of three = 0: ");
             
+            List<int> threeKillList = new List<int>();
+
+            for (int i = 0; i < array50.Length; i++)
+            {
+                if ((array50[i] % 3 == 0) && (array50[i] != 0))
+                {
+                    threeKillList.Add(array50[i]);
+                    array50[i] = 0;
+                }
+            }
+            Console.WriteLine($"ThreeKillList output numbers: ");
+            foreach (var num3 in threeKillList)
+            {
+                Console.Write($"{num3} ");
+            }
+            Console.WriteLine();
 
             Console.WriteLine("-------------------");
 
