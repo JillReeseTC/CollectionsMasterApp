@@ -100,6 +100,7 @@ namespace CollectionsMasterConsoleUI
             //Create a method that prints if a user number is present in the list
             //Remember: What if the user types "abc" accident your app should handle that!
             int userNumber = AskNumber();
+            Console.WriteLine($"Number chosen is {userNumber}");
             NumberChecker(mrInts, userNumber);
             Console.WriteLine();
 
@@ -113,13 +114,13 @@ namespace CollectionsMasterConsoleUI
 
             //TODO: Create a method that will remove all odd numbers from the list then print results
             Console.WriteLine("Evens Only!!");
-            OddKiller(mrInts);
+            mrInts = OddKiller(mrInts);
 
             Console.WriteLine("------------------");
 
             //Sort the list then print results
             Console.WriteLine("Sorted Evens!!");
-            mrInts.Sort();
+            //mrInts.Sort();
             foreach (var itemSort in mrInts)
             {
                 Console.Write($"{itemSort} ");
@@ -173,7 +174,7 @@ namespace CollectionsMasterConsoleUI
         }
 
 
-        private static void OddKiller(List<int> numberList)
+        private static List<int> OddKiller(List<int> numberList)
         {
             Console.WriteLine("Remove the Odd Numbers: ");
 
@@ -197,6 +198,16 @@ namespace CollectionsMasterConsoleUI
                 Console.Write($"{numEven} ");
             }
             Console.WriteLine();
+
+            Console.WriteLine($"All even output numbers sorted: ");
+            evenList.Sort();
+            foreach (var numEven in evenList)
+            {
+                Console.Write($"{numEven} ");
+            }
+            Console.WriteLine();
+            return evenList;
+
         }
 
 
@@ -206,7 +217,8 @@ namespace CollectionsMasterConsoleUI
             Console.WriteLine("What number will you search for in the number list?");
             Console.WriteLine($"Enter an integer between 0 and 50: ");
             var s = Console.ReadLine();
-            int x = -1;
+            int x;
+            int returnValue = -1;
 
             while (x >= 0 && x <= 50)
             {
