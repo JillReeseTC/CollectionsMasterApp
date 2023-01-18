@@ -216,23 +216,26 @@ namespace CollectionsMasterConsoleUI
         {
             Console.WriteLine("What number will you search for in the number list?");
             Console.WriteLine($"Enter an integer between 0 and 50: ");
-            var s = Console.ReadLine();
-            int x;
+            
             int returnValue = -1;
 
-            while (x >= 0 && x <= 50)
+            while (!(returnValue >= 0 && returnValue <= 50))
             {
+                var s = Console.ReadLine();
+                int x;
+
                 if (int.TryParse(s, out x))
                 {
-                    Console.WriteLine($"You entered a valid integer: {x}");
+                    Console.WriteLine($"Invalid Input. Try an integer from 0 to 50:");
+                    returnValue = x;
                 }
                 else
                 {
-                    Console.WriteLine($"Invalid Input. Try an integer from 0 to 50:");
+                    Console.WriteLine($"You entered a valid integer: {x}");
+                    returnValue = x;
                 }
             }
-             
-            return x;
+            return returnValue;
         }
 
         private static void NumberChecker(List<int> numberList, int searchNumber)
